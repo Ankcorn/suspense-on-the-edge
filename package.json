@@ -1,13 +1,36 @@
 {
+  "name": "lambda",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "wrangler dev src/index.ts",
-    "deploy": "wrangler deploy --minify src/index.ts"
-  },
-  "dependencies": {
-    "hono": "^3.10.2"
+    "wrangler:dev": "wrangler dev",
+    "wrangler:deploy": "wrangler deploy",
+    "dev": "sst dev",
+    "build": "sst build",
+    "deploy": "sst deploy --stage prod",
+    "remove": "sst remove",
+    "console": "sst console",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230914.0",
+    "@tsconfig/node18": "^18.2.2",
+    "aws-cdk-lib": "2.110.1",
+    "constructs": "10.3.0",
+    "sst": "^2.36.6",
+    "typescript": "^5.3.2",
     "wrangler": "^3.15.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "@microlabs/otel-cf-workers": "^1.0.0-rc.15",
+    "@planetscale/database": "^1.11.0",
+    "flat": "^6.0.1",
+    "hono": "^3.10.3",
+    "i": "^0.3.7",
+    "npm": "^10.2.4"
   }
 }
